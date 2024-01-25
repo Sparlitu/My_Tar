@@ -45,7 +45,8 @@ void arhivare(int argc, char **argv)
 	}
 
       //header
-      long int header_begin_offset = ftell(fout);
+
+      //long int header_begin_offset = ftell(fout);
       
       //file name
       fwrite(argv[i], sizeof(char), strlen(argv[i]), fout);
@@ -74,7 +75,7 @@ void arhivare(int argc, char **argv)
       fwrite(last_modification, sizeof(char), 12, fout);
 
       //completez momentan checksum cu ' '
-      long int chksum_offset = ftell(fout);
+      //long int chksum_offset = ftell(fout);
       char chksum[8] ="      ";
       fwrite(chksum, sizeof(char), 7, fout);
       char blank = ' ';
@@ -103,7 +104,8 @@ void arhivare(int argc, char **argv)
       
       //restul campurilor ?? suntem la deplasamentul 329
       fwrite(zero, sizeof(char), 183, fout);
-      long int header_end_offset = ftell(fout);
+
+      //long int header_end_offset = ftell(fout); 
 
       //calculez checksum
       /*
